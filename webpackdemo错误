@@ -1,0 +1,9 @@
+webpack安装及运行
+webpack -v 
+4.5.0
+1.安装完`extract-text-webpack-plugin` 之后,运行webpack报错:
+
+(node:14556) DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead
+
+解决方法:npm install extract-text-webpack-plugin@next --save-dev
+
