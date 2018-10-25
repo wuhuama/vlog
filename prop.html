@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="description" content="vue">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <blog-post title='sssss'></blog-post>
+        <blog-post title='aaa'></blog-post>
+        <blog-post title='bbb'></blog-post>
+        <hr>
+        <ul>
+            <li v-for="(item,index) in items" :key='index'>
+                <child :data="item"></child>
+                <button @click="remove(index)">删除</button>
+            </li>
+        </ul>
+        <button @click=add>add</button>
+    </div>
+</body>
+</html>
+<script>
+    Vue.component('blog-post', {
+        props:['title'],
+        template: `<span>{{title}}</span>`
+    })
+    Vue.component('child', {
+        props: ['data'],
+        template: `
+        <span style="border: 1px solid red;">{{data.clicked}}
+            <button type="button" v-on:click="data.clicked = !data.clicked">点我</button>
+            </span>
+        `
+    })
+    var app = new Vue({
+        el: '#app',
+        data: {
+            items: [],
+        },
+        beforeCreate: function () {
+            console.group('创建之前---');
+            for(let i=0; i< this.items.length; i++ ){
+                console.log(this.items[i].clicked)
+            }
+        },
+        created: function () {
+            console.group('创建后---');
+            for(let i=0; i< this.items.length; i++ ){
+                console.log(this.items[i].clicked)
+            }
+        },
+        beforeMount: function () {
+            console.group('挂载之前---');
+            for(let i=0; i< this.items.length; i++ ){
+                console.log(this.items[i].clicked)
+            }
+        },
+        mounted : function(){
+            console.group('挂载后---');
+            for(let i=0; i< this.items.length; i++ ){
+                console.log(this.items[i].clicked)
+            }
+        },
+        beforeUpdate: function () {
+                console.group('更新前---');
+                for(let i=0; i< this.items.length; i++ ){
+                    console.log(this.items[i].clicked)
+                }
+            },
+            updated: function () {
+                console.group('更新后---');
+                for(let i=0; i< this.items.length; i++ ){
+                    console.log(this.items[i].clicked)
+                }
+            },
+        methods: {
+            add: function () {
+                this.items.push({ name: 'xxx', id: Math.random(), clicked: false})
+            },
+            remove: function (index) {
+                this.items.splice(index, 1)
+            }
+        }
+    })
+    
+    
+</script>
