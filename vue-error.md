@@ -28,3 +28,15 @@ Serving "F:\project\vuedemo" at http://127.0.0.1:7999
 设置`yarn config set "chromedriver_cdnurl" "https://npm.taobao.org/mirrors/chromedriver"`
 
 然后再执行 vue init webpack project-name 就OK了
+
+初始化项目之后安装依赖:
+1. sass  
+`npm install --save-dev sass-loader node-sass  `
+安装完之后,修改build的中的webpack.base.conf.js文件,module中:   
+
+    {  
+    	test: /\.scss$/,  
+    	loaders: ['style', 'css', 'sass']  
+    }   
+![](https://i.imgur.com/p9koyDN.png)
+
