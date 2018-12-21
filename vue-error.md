@@ -29,9 +29,23 @@ Serving "F:\project\vuedemo" at http://127.0.0.1:7999
 
 然后再执行 vue init webpack project-name 就OK了
 
+<<<<<<< HEAD
 安装依赖的注意事项:
 使用npm 安装,例如: `npm install jquery --save-dev` 安装`jquery`。
 
 `--save-dev`表示自动添加配置依赖到`package.json`文件的`devDependencies`中,开发环境
 
 `--save`表示自动添加配置依赖到`package.json`文件的`dependencies`中，生产环境
+=======
+初始化项目之后安装依赖:
+1. sass  
+`npm install --save-dev sass-loader node-sass  `
+安装完之后,修改build的中的webpack.base.conf.js文件,module中:   
+
+    {  
+    	test: /\.scss$/,  
+    	loaders: ['style', 'css', 'sass']  
+    }   
+![](https://i.imgur.com/p9koyDN.png)
+
+>>>>>>> 7ab55be91cc6532218a6d76b0a8d44a1a28c5702
