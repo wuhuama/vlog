@@ -28,3 +28,10 @@ Serving "F:\project\vuedemo" at http://127.0.0.1:7999
 设置`yarn config set "chromedriver_cdnurl" "https://npm.taobao.org/mirrors/chromedriver"`
 
 然后再执行 vue init webpack project-name 就OK了
+
+安装依赖的注意事项:
+使用npm 安装,例如: `npm install jquery --save-dev` 安装`jquery`。
+
+`--save-dev`表示自动添加配置依赖到`package.json`文件的`devDependencies`中,开发环境
+
+`--save`表示自动添加配置依赖到`package.json`文件的`dependencies`中，生产环境
